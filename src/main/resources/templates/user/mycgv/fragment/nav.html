@@ -1,0 +1,61 @@
+<!DOCTYPE html >
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<body class="sb-nav-fixed" th:fragment="nav-user">
+<div class="col-aside">
+    <div class="skipnaiv">
+        <a href="#mycgv_contents" id="skipMycgvMenu">MYCGV 서브메뉴 건너띄기</a>
+    </div>
+    <h2>MY CGV 서브메뉴</h2>
+    <div class="snb">
+        <ul>
+            <li id="mycgv">
+                <a href="/user/mycgv" title="현재 선택">MY CGV HOME <i></i></a>
+            </li>
+
+            <li id="reserve">
+                <a href="/user/mycgv/mycgv-reserve" >나의 예매내역 <i></i></a>
+            </li>
+
+            <li id="point">
+                <a href="/user/mycgv/point" >CGV 포인트 <i></i></a>
+                <ul>
+                    <li id="pointInfo">
+                        <a href="/user/mycgv/point/mycgv-cgvPoint-pointInfo" >포인트 적립/사용안내</a>
+                    </li>
+                    <li id="pointList">
+                        <a href="/user/mycgv/point/mycgv-cgvPoint-pointList" >포인트 적립/사용내역</a>
+                    </li>
+                </ul>
+            </li>
+            <li id="store">
+                <a href="/user/mycgv/popcorn-store/mycgv-popcorn-store-paymentList" >결제내역<i></i></a>
+                <ul>
+                    <li id="storePay">
+                        <a href="/user/mycgv/popcorn-store/mycgv-popcorn-store-paymentList" >결제내역</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li id="myinfo">
+                <a href="/user/mycgv/mycgv-myinfo" >회원정보<i></i></a>
+                <ul>
+
+                    <li id="myinfoEdit">
+                        <a href="/user/mycgv/mycgv-myinfo" >개인정보 변경</a>
+                    </li>
+
+                    <li id="myinfoLeave">
+                        <a href="/user/mycgv/myinfo/mycgv-myinfo-leavecgv" >회원탈퇴</a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="my-event"><a href="/user/movielog/mycgv-movielog-watched">내가 본 영화</a></li>
+        </ul>
+
+    </div>
+</div>
+</body>
+</html>

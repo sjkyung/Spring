@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org/">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-
+  to-fit=no">
+    <!-- Custom styles for this template -->
+    <link href="/css/jumbotron-narrow.css" rel="stylesheet">
+    <!-- Bootstrap CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>영화 관리</title>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+    <link href="/css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+    <script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+
+</head>
+<body class="sb-nav-fixed" >
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="/admin/main">CGV Administrator</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
+        <div class="input-group">
+            <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />
+            <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+        </div>
+    </form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#!">Settings</a></li>
+                <li><a class="dropdown-item" href="#!">Activity Log</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li><a class="dropdown-item" href="#!">Logout</a></li>
+            </ul>
+        </li>
+    </ul>
+</nav>
+
+
+<!-- header -->
+<div th:replace="admin/fragment/header :: header"></div>
+<!-- header 끝 -->
+
+<div id="layoutSidenav_content" style="margin-top:100px; margin-left: 240px">
+    <main>
+        <div class="container-fluid px-4" style="margin:0 auto;">
+            <h2 style="text-align:center;">영화</h2>
+            <form action="/manage_ongoingmovies_create" method="post" style="width:40%; border:solid 2px red; border-radius:10px; padding:5%; margin:0 auto;">
+                <div class="form-row">
+                    <label for="inputmscreen">상영여부</label>
+                    <select name="mscreen" id="inputmscreen" th:value="${mcode.mscreen}" class="form-control"  readonly>
+                        <option th:selected="${mcode.mscreen} == '상영중'" name="">상영중</option>
+                        <option th:selected="${mcode.mscreen} == '상영종료'">상영종료</option>
+                    </select>
+                </div>
+                <hr/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputtitleko">영화 명</label>
+                        <input type="text" class="form-control" id="inputtitleKo" placeholder="" name="titleKo" th:value="${mcode.titleKo}" readonly>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputtitleEn">영화 명(영문)</label>
+                        <input type="text" class="form-control" id="inputtitleEn" placeholder="" name="titleEn" th:value="${mcode.titleEn}" readonly>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputgenre">장르</label>
+                        <select name="genre" id="inputgenre" class="form-control" th:value="${mcode.genre}"  readonly="genre">
+                            <option th:selected="${mcode.genre} == '액션'" name="" readonly>액션</option>
+                            <option th:selected="${mcode.genre} == '애니메이션'" readonly>애니메이션</option>
+                            <option th:selected="${mcode.genre} == '드라마'" readonly>드라마</option>
+                            <option th:selected="${mcode.genre} == '범죄'" readonly>범죄</option>
+                            <option th:selected="${mcode.genre} == '스릴러'"readonly>스릴러</option>
+                            <option th:selected="${mcode.genre} == '멜로/로맨스'" readonly>멜로/로맨스</option>
+                            <option th:selected="${mcode.genre} == '공포(호러)'" readonly>공포(호러)</option>
+                            <option th:selected="${mcode.genre} == '미스터리'"readonly >미스터리</option>
+                            <option th:selected="${mcode.genre} == 'SF'" readonly>SF</option>
+                            <option th:selected="${mcode.genre} == '성인물(에로)'" readonly>성인물(에로)</option>
+                            <option th:selected="${mcode.genre} == '판타지'" readonly>판타지</option>
+                            <option th:selected="${mcode.genre} == '어드벤처'" readonly>어드벤처</option>
+                            <option th:selected="${mcode.genre} == '사극'" readonly>사극</option>
+                            <option th:selected="${mcode.genre} == '가족'" readonly>가족</option>
+                            <option th:selected="${mcode.genre} == '전쟁'">전쟁</option>
+                            <option th:selected="${mcode.genre} == '기타'">기타</option>
+                            <option th:selected="${mcode.genre} == '다큐멘터리'">다큐멘터리</option>
+                            <option th:selected="${mcode.genre} == '뮤지컬'">뮤지컬</option>
+                            <option th:selected="${mcode.genre} == '공연'">공연</option>
+                            <option th:selected="${mcode.genre} == '서부극(웨스턴)'">서부극(웨스턴)</option>
+
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputcountry">제작국가</label>
+                        <input type="text" class="form-control" id="inputcountry" placeholder="" name="country" th:value="${mcode.country}" readonly>
+                    </div>
+                </div>
+                <hr/>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label for="inputmovieRating">관람 등급</label>
+                        <!--                        <input type="text" class="form-control" id="inputmovieRating" placeholder="" name="movieRating">-->
+                        <select name="movieRating" id="inputmovieRating" class="form-control"  th:value="${mcode.movieRating}" readonly="movieRating">
+                            <option th:selected="${mcode.movieRating} == '전체이용가'" name="" readonly>전체 이용가</option>
+                            <option th:selected="${mcode.movieRating} == '12세 이상'" name="" readonly>12세 이상</option>
+                            <option th:selected="${mcode.movieRating} == '15세 이상'" name="" readonly>15세 이상</option>
+                            <option th:selected="${mcode.movieRating} == '청소년 관람불가'" name="" readonly>청소년 관람불가</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="inputruntime">러닝 타임</label>
+                        <input type="text" class="form-control" id="inputruntime" placeholder="" name="runtime" th:value="${mcode.runtime}" readonly>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-row">
+                    <div class="form-group col-md-12" >
+                        <label for="inputlaunchdate">개봉일</label>
+                        <input type="text" class="form-control" id="inputlaunchdate" placeholder="" name="launchDate" th:value="${mcode.launchDate}" readonly>
+                    </div>
+                </div>
+                <hr/>
+                <div class="form-group">
+                    <label for="exampleFormControlFile1" >파일등록(링크)</label>
+                    <input type="text" class="form-control-file" id="exampleFormControlFile1" name="poster" th:value="${mcode.poster}" readonly >
+                    <hr/>
+                        <a class="btn btn-info" th:href="@{'/manage_ongoingmovies/create/' + ${mcode.mcode}}" role="button">상세정보 등록</a>
+                        <a class="btn btn-info" th:href="@{'/manage_ongoingmovies/detail/' + ${mcode.mcode}}" role="button">상세정보 수정</a>
+                    <hr/>
+                        <input th:onclick="|location.href='@{/manage_ongoingmovies}'|" class="btn btn-primary" type="button"  value="목록">
+                        <a class="btn btn-info" th:href="@{'/manage_ongoingmovies/edit/' + ${mcode.mcode}}" role="button">수정</a>
+                </div>
+            </form>
+        </div>
+    </main>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="js/scripts.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+<script src="assets/demo/chart-area-demo.js"></script>
+<script src="assets/demo/chart-bar-demo.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+<script src="js/datatables-simple-demo.js"></script>
+</body>
+</html>

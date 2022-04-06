@@ -1,5 +1,10 @@
 # CGVproject
 
-# admin-login
-userid: admin
-userpw: 1111
+
+개발 툴 
+IntelliJ
+Vscode
+OracleDB
+bootstrapk
+
+

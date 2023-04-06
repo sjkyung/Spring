@@ -1,2 +1,12 @@
 server:
   port: 8081
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://database-1.czi5som3ttui.ap-northeast-2.rds.amazonaws.com:3306
+    username: root
+    password: root1234
+
+

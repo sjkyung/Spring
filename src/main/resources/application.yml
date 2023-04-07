@@ -1,7 +1,7 @@
 server:
   port: 8081
 
-
+# 데이터 베이스 세팅
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -12,3 +12,33 @@ spring:
       maximum-pool-size: 20
 
 
+#Swagger 세팅
+springdoc:
+  version: v1.0.0
+  api-docs:
+    groups:
+      enabled: true
+  show-actuator: true
+  cache:
+    disabled: true
+  model-and-view-allowed: true
+
+
+  swagger-ui:
+    operationsSorter: method
+    enabled: true
+    tags-sorter: alpha
+    tryItOutEnabled: true
+    displayRequestDuration: true
+    displayOperationId: true
+    syntaxHighlight:
+      activated: true
+      theme: tomorrow-night
+    use-root-path: true
+    persistAuthorization: true
+    filter: true
+    docExpansion: none
+
+
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json

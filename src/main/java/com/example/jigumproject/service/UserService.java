@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -22,8 +23,27 @@ public class UserService {
         List<UserDto> userDtoList = new ArrayList<>();
         List<User> userList =userRepository.findAll();
 
-        userDtoList.add((UserDto) userList);
+        userList.forEach(user -> {
+            userDtoList.add(user.toDto());
+        });
 
         return userDtoList;
     }
+
+
+    public  List<UserDto> userListId(UserDto userDto){
+
+        List<UserDto> userDtoList =new ArrayList<>();
+
+        User user =userDto.toEntity();
+        Optional<User> userList =userRepository.findById(user.getId());
+        if(userList.isPresent()){
+            userDtoList.add(userList.get().toDto());
+        }
+
+
+        return userDtoList;
+    }
+
+
 }

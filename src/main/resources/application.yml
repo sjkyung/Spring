@@ -12,6 +12,20 @@ spring:
       maximum-pool-size: 20
 
 
+  # jpa table 네이밍 대소문자 구분 여부
+  jpa:
+    # sql 문 로그
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        query:
+          interceptor: com.querydsl.jpa.impl.JPAQueryFactory
+        ddl-auto: none
+
+
+
+
 #Swagger 세팅
 springdoc:
   version: v1.0.0

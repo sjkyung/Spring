@@ -23,6 +23,7 @@ public class UserService {
         List<UserDto> userDtoList = new ArrayList<>();
         List<User> userList =userRepository.findAll();
 
+
         userList.forEach(user -> {
             userDtoList.add(user.toDto());
         });

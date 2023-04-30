@@ -4,10 +4,13 @@ server:
 # 데이터 베이스 세팅
 spring:
   datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://3.39.9.175:3306/test
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://3.39.9.175:3306/test
+    url: jdbc:mysql://localhost:3306/test
     username: root
-    password: root1234
+#    password: root1234
+    password: 1234
     hikari:
       maximum-pool-size: 20
 

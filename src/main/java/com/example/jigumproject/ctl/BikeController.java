@@ -4,6 +4,7 @@ package com.example.jigumproject.ctl;
 import com.example.jigumproject.dto.apiDto;
 import com.example.jigumproject.dto.row;
 import com.example.jigumproject.service.BikeService;
+import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -35,11 +36,11 @@ public class BikeController {
     }
 
 
-    @GetMapping(value = "bikeList/{start}/{end}")
-    public List<row> bikeList(String startLatitude, String endLatitude){
+    @GetMapping(value = "bikeList/{Latitude}/{Longitude}")
+    public List<row> bikeList(@Parameter(name="Latitude",description = "위도 길이 5글자(소수점 포함)")@PathVariable  String Latitude,@Parameter(name="Longitude",description = "경도 길이 5글자(소수점 포함)") @PathVariable String Longitude){
 
-        log.info("start,end  : {},{} ",startLatitude, endLatitude);
-        List<row> bikeList =bikeService.bikeList(startLatitude,endLatitude);
+        log.info("start,end  : {},{} ",Latitude, Longitude);
+        List<row> bikeList =bikeService.bikeList(Latitude,Longitude);
 
         log.info(" bikeList size  : {} ", bikeList.size());
         return bikeList;

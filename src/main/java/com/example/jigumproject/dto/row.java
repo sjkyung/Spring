@@ -22,4 +22,12 @@ public class row {
     private String stationLatitude;
     private String stationLongitude;
     private String stationId;
+
+
+
+//    public String subString(String stationLatitude, String stationLongitude){
+//        this.stationLatitude.substring(0,5);
+//        this.stationLongitude.substring(0,5);
+//        return;
+//    }
 }

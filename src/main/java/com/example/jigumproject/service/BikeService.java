@@ -38,6 +38,10 @@ public class BikeService {
         String  apiBikeKey = bikeKey.get().getKey();
         List<row> bikeDtoList = new ArrayList();
 
+        String start = startLatitude.substring(0,5);
+        String end =endLatitude.substring(0,5);
+
+
 
             // uri 주소 생성
             URI uri1 = UriComponentsBuilder
@@ -83,7 +87,7 @@ public class BikeService {
 
             bikeDtoList = Stream.concat(rowArrayListFirst.stream(),rowArrayListTwo.stream()).collect(Collectors.toList());
 
-            bikeDtoList.forEach(f -> System.out.println(f.getStationLatitude()));
+            //bikeDtoList.forEach(f -> System.out.println(f.getStationLatitude()));
 
 
             //parameter 위도 경도 받아서  list 데이터 정제
@@ -98,7 +102,7 @@ public class BikeService {
 
 
 
-            return bikeListstartLatitude;
+            return bikeList;
         }
 
 

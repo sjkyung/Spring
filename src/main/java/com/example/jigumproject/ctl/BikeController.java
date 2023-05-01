@@ -37,7 +37,7 @@ public class BikeController {
 
 
     @GetMapping(value = "bikeList/{Latitude}/{Longitude}")
-    public List<row> bikeList(@Parameter(name="Latitude",description = "위도 길이 5글자(소수점 포함)")@PathVariable  String Latitude,@Parameter(name="Longitude",description = "경도 길이 5글자(소수점 포함)") @PathVariable String Longitude){
+    public List<row> bikeList(@Parameter(name="Latitude",description = "위도")@PathVariable  String Latitude,@Parameter(name="Longitude",description = "경도") @PathVariable String Longitude){
 
         log.info("start,end  : {},{} ",Latitude, Longitude);
         List<row> bikeList =bikeService.bikeList(Latitude,Longitude);

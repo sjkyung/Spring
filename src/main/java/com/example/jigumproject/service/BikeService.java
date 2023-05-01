@@ -92,7 +92,7 @@ public class BikeService {
 
             //parameter 위도 경도 받아서  list 데이터 정제
             List<row> bikeList = bikeDtoList.stream()
-                    .filter(f -> f.getStationLatitude().startsWith(startLatitude) && f.getStationLongitude().startsWith(endLatitude))
+                    .filter(f -> f.getStationLatitude().contains(start) && f.getStationLongitude().contains(end))
                     .collect(Collectors.toList());
 
 

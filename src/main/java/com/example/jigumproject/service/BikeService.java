@@ -56,8 +56,8 @@ public class BikeService {
 
             ResponseEntity<apiDto> result1 = restTemplete1.getForEntity(uri1, apiDto.class);
             // entity로 데이터를 가져오겠다(Get)~~
-            System.out.println(result1.getStatusCode());
-            System.out.println(result1.getBody());
+            //System.out.println(result1.getStatusCode());
+            //System.out.println(result1.getBody());
             ArrayList<row> rowArrayListFirst = result1.getBody().getRentBikeStatus().getRow();
 
 
@@ -75,8 +75,8 @@ public class BikeService {
 
             ResponseEntity<apiDto> result2 = restTemplete2.getForEntity(uri2, apiDto.class);
             // entity로 데이터를 가져오겠다(Get)~~
-            System.out.println(result2.getStatusCode());
-            System.out.println(result2.getBody().getRentBikeStatus().getRow());
+            //System.out.println(result2.getStatusCode());
+            //System.out.println(result2.getBody().getRentBikeStatus().getRow());
 
             ArrayList<row> rowArrayListTwo =result2.getBody().getRentBikeStatus().getRow();
 

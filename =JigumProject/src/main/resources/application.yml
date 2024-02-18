@@ -1,0 +1,61 @@
+server:
+  port: 8081
+
+# 데이터 베이스 세팅
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://3.39.9.175:3306/test
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://localhost:3306/test
+    username: root
+    password: root1234
+#    password: 1234
+    hikari:
+      maximum-pool-size: 20
+
+
+  # jpa table 네이밍 대소문자 구분 여부
+  jpa:
+    # sql 문 로그
+    properties:
+      hibernate:
+        show_sql: true
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        query:
+          interceptor: com.querydsl.jpa.impl.JPAQueryFactory
+        ddl-auto: none
+
+
+
+
+#Swagger 세팅
+springdoc:
+  version: v1.0.0
+  api-docs:
+    groups:
+      enabled: true
+  show-actuator: true
+  cache:
+    disabled: true
+  model-and-view-allowed: true
+
+
+  swagger-ui:
+    operationsSorter: method
+    enabled: true
+    tags-sorter: alpha
+    tryItOutEnabled: true
+    displayRequestDuration: true
+    displayOperationId: true
+    syntaxHighlight:
+      activated: true
+      theme: tomorrow-night
+    use-root-path: true
+    persistAuthorization: true
+    filter: true
+    docExpansion: none
+
+
+  default-consumes-media-type: application/json
+  default-produces-media-type: application/json

@@ -1,7 +1,7 @@
 # Spring Boot 프로젝트
 
-### CgvProject
+### 📚CgvProject
 Cgv 클론 코딩 프로젝트
 
-### JigumProject
-따릉이 공공 api 연동 프로젝트
+### 📚JigumProject
+따릉이 공공 api 연동 프로젝트(사이드 프로젝트)

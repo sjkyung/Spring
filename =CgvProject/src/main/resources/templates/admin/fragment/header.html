@@ -1,0 +1,132 @@
+<!DOCTYPE html >
+<html lang="ko"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org/">
+<body class="sb-nav-fixed" th:fragment="header">
+<div id="layoutSidenav" >
+    <div id="layoutSidenav_nav">
+        <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+            <div class="sb-sidenav-menu">
+                <div class="nav">
+                    <div class="sb-sidenav-menu-heading">Main</div>
+                    <a class="nav-link" th:href="@{/admin/main}">
+                        <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                        Main
+                    </a>
+                    <div class="sb-sidenav-menu-heading">Administrator</div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#member" aria-expanded="false" aria-controls="member">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        회원관리
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="member" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/member-lookup" style="font-size:15px; padding-left:30px;">회원정보조회</a>
+                            <a class="nav-link" href="/member-ticket" style="font-size:15px; padding-left:30px;">예매내역조회</a>
+                            <a class="nav-link" href="/member-paymentlist" style="font-size:15px; padding-left:30px;">결제내역조회</a>
+                            <a class="nav-link" href="/member-pointlist" style="font-size:15px; padding-left:30px;">포인트내역조회</a>
+                        </nav>
+                    </div>
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#movie" aria-expanded="false" aria-controls="movie">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        영화관리
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="movie" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" href="/movie-schedule" style="font-size:15px; padding-left:30px;">상영스케쥴</a>
+                            <a class="nav-link" href="/admin/price" style="font-size:15px; padding-left:30px;">관람가격설정</a>
+                            <a class="nav-link" href="/movie/theaters" style="font-size:15px; padding-left:30px;">상영관관리</a>
+                            <a class="nav-link" href="/manage_ongoingmovies" style="font-size:15px; padding-left:30px;">상영중인 영화</a>
+                            <a class="nav-link" href="/admin/seat" style="font-size:15px; padding-left:30px;">좌석 배치 / 관리</a>
+                        </nav>
+                    </div>
+
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#event" aria-expanded="false" aria-controls="event">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        이벤트관리
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="event" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" th:href="@{/event-list-special}" style="font-size:15px; padding-left:30px;">이벤트관리</a>
+                            <a class="nav-link" th:href="@{/event-result}"  style="font-size:15px; padding-left:30px;">이벤트 당첨자 추첨</a>
+                            <a class="nav-link" th:href="@{/event-done}"  style="font-size:15px; padding-left:30px;">종료된 이벤트 관리</a>
+                        </nav>
+                    </div>
+
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#notice" aria-expanded="false" aria-controls="notice">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        공지관리
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="notice" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" th:href="@{/manage_news}" style="font-size:15px; padding-left:30px;">공지</a>
+                            <a class="nav-link" th:href="@{/manage_qna}" style="font-size:15px; padding-left:30px;">자주 묻는 질문</a>
+                        </nav>
+                    </div>
+
+                    <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#custom-center" aria-expanded="false" aria-controls="custom-center">
+                        <div class="sb-nav-link-icon"><i class="fas fa-columns"></i></div>
+                        문의관리
+                        <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                    </a>
+                    <div class="collapse" id="custom-center" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordion">
+                        <nav class="sb-sidenav-menu-nested nav">
+                            <a class="nav-link" th:href="@{/mailList}"  style="font-size:15px; padding-left:30px;">이메일문의(1:1문의)</a>
+                            <a class="nav-link" th:href="@{/orgList}" style="font-size:15px; padding-left:30px;">단체/대관문의</a>
+                            <a class="nav-link" th:href="@{/lostList}" style="font-size:15px; padding-left:30px;">분실문문의</a>
+                        </nav>
+                    </div>
+
+                    <!--
+                                           <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
+                                               <div class="sb-nav-link-icon"><i class="fas fa-book-open"></i></div>
+                                               2번
+                                               <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                           </a>
+                                           <div class="collapse" id="collapsePages" aria-labelledby="headingTwo" data-bs-parent="#sidenavAccordion">
+                                               <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
+                                                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseAuth" aria-expanded="false" aria-controls="pagesCollapseAuth">
+                                                       Authentication
+                                                       <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                                   </a>
+
+                                                   <div class="collapse" id="pagesCollapseAuth" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                                       <nav class="sb-sidenav-menu-nested nav">
+                                                           <a class="nav-link" href="login.html">Login</a>
+                                                           <a class="nav-link" href="register.html">Register</a>
+                                                           <a class="nav-link" href="password.html">Forgot Password</a>
+                                                       </nav>
+                                                   </div>
+                                                   <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#pagesCollapseError" aria-expanded="false" aria-controls="pagesCollapseError">
+                                                       Error
+                                                       <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div>
+                                                   </a>
+                                                   <div class="collapse" id="pagesCollapseError" aria-labelledby="headingOne" data-bs-parent="#sidenavAccordionPages">
+                                                       <nav class="sb-sidenav-menu-nested nav">
+                                                           <a class="nav-link" href="401.html">401 Page</a>
+                                                           <a class="nav-link" href="404.html">404 Page</a>
+                                                           <a class="nav-link" href="500.html">500 Page</a>
+                                                       </nav>
+                                                   </div>
+                                               </nav>
+                                           </div>
+                          -->
+                    <div class="sb-sidenav-menu-heading">김영신과 아이들</div>
+<!--                    <a class="nav-link" href="./ref/charts.html">-->
+<!--                        <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>-->
+<!--                        Charts-->
+<!--                    </a>-->
+<!--                    <a class="nav-link" href="./ref/tables.html">-->
+<!--                        <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>-->
+<!--                        Tables-->
+<!--                    </a>-->
+                </div>
+            </div>
+        </nav>
+        </div>
+</div>
+</body>
+</html>

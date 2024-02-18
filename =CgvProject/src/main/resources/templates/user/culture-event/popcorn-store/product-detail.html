@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org/">
+
+<head>
+
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta http-equiv="Expires" content="-1"/>
+    <meta http-equiv="Pragma" content="no-cache"/>
+    <meta http-equiv="Cache-Control" content="No-Cache"/>
+    <meta http-equiv="imagetoolbar" content="no"/>
+    <meta name="viewport" content="width=1024"/>
+    <meta name="keywords" content="CGV, 시지브이, 영화관, 극장, 영화, 티켓, 박스오피스, 극장, Movie, Theater, Cinema, Cgv, cgv, 예매, 상영작"/>
+    <meta name="description"
+          content="CGV는 선진화된 관람문화와 최고의 서비스로 고객에게 잊을 수 없는 감동을 선사합니다. CGV홈페이지를 통해 영화 예매뿐만 아니라 그 이상의 서비스와 감동을 전달하고, 다양한 즐거움과 특별한 경험을 제공하고자 합니다."/>
+    <meta property="og:site_name" content="영화 그 이상의 감동. CGV"/>
+    <meta id="ctl00_og_title" property="og:title" content="영화 그 이상의 감동. CGV"></meta>
+
+
+    <meta id="ctl00_og_image" property="og:image"
+          content="https://img.cgv.co.kr/WebApp/images/common/logo_new_kakao_prevw.png"></meta>
+    <link rel="alternate" href="http://m.cgv.co.kr"/>
+    <link rel="shortcut icon" href="https://img.cgv.co.kr/theater_img/favicon.ico" type="image/x-icon"/>
+    <title id="ctl00_headerTitle"></title>
+    <link rel="shortcut icon" type="image/x-icon" href="https://img.cgv.co.kr/R2014/images/favicon.ico"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/webfont.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/reset.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/layout.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/module.css?20211209"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/content.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/common.css"/>
+
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/eggupdate.css"/>
+    <link rel="stylesheet" media="print" type="text/css" href="https://img.cgv.co.kr/R2014/css/print.css"/>
+    <link rel="stylesheet" type="text/css"
+          href="https://img.cgv.co.kr/R2014/js/jquery.ui/smoothness/jquery-ui-1.10.4.custom.min.css"/>
+
+    <script type="text/javascript" src="/common/js/extraTheaters.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/app.config.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.tmpl.min.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.validate.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.paging.min.js"></script>
+    <script type="text/javascript"
+            src="https://img.cgv.co.kr/R2014/js/jquery.ui/jquery-ui-1.10.4.custom.min.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.utils.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/app.utils.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.utils.pageing.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/app.init.js"></script>
+
+    <!--[if lte IE 9]>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.placeholder.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/jquery.plugin/jquery.dotdotdot.min.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/silverlight_link.js"></script>
+    <script src="https://img.cgv.co.kr/R2014/js/slick/slick.js" type="text/javascript" charset="utf-8"></script>
+
+    <link rel="stylesheet" media="all" type="text/css"
+          href="https://img.cgv.co.kr/R2014/css/phototicket/phototicket.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/slick.css"/>
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/slick-theme-custom.css"/>
+
+    <script src="https://img.cgv.co.kr/R2014/js/icheck/icheck.min.js" type="text/javascript" charset="utf-8"></script>
+    <link rel="stylesheet" type="text/css" href="https://img.cgv.co.kr/R2014/js/icheck/iCheck.css"/>
+
+    <!-- 2020.05.07 감정지수/프리에그 프로젝트 추가 -->
+    <link rel="stylesheet" media="all" type="text/css" href="https://img.cgv.co.kr/R2014/css/preegg.css"/>
+
+    <!-- 각페이지 Header Start-->
+
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/common/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/common/netfunnel.js"></script>
+    <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/common/netfunnel.skin.js"></script>
+    <script type="text/javascript">
+
+        var pIdx = "0";
+        var gidx = "100253";
+        var loginstatus = "False";
+
+        var categoryid = "2";
+        var invithtml = "";
+
+        var ggOfferType = "";
+
+
+    </script>
+
+
+    <!--/각페이지 Header End-->
+
+</head>
+<body>
+
+<div th:replace="user/fragment/header :: header-user"></div>
+
+<!-- Contaniner -->
+<div id="contaniner" class=""><!-- 벽돌 배경이미지 사용 시 class="bg-bricks" 적용 / 배경이미지가 없을 경우 class 삭제  -->
+
+
+    <!-- Contents Area -->
+    <div id="contents" class="">
+
+
+        <!-- Contents Start -->
+
+        <div id="divAction"></div>
+        <!-- /Contaniner -->
+        <!-- S 카테고리 메뉴 & 받은선물/장바구니 -->
+
+
+        <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/giftstore/giftstore.js"></script>
+        <script type="text/javascript" src="https://img.cgv.co.kr/R2014/js/giftstore/commonstore.js"></script>
+
+        <link rel="stylesheet" media="all" type="text/css"
+              href="https://img.cgv.co.kr/R2014/css/giftstore/giftstore.css"/>
+
+        <script>
+            // 사용가능한 CGV 노출
+            $(document).ready(function () {
+                $('.btn_available_viewcgv').on('click', function (e) {
+                    $('.com_pop_wrap').show();
+                    $('.com_pop').show();
+                    $('.com_pop_fog').css('background-color', 'rgba(0,0,0,0.5)');
+                    $('.pop_product_cgv').css('top', '55%');
+                })
+
+                $('.com_pop_wrap').click(function () {
+                    $('.com_pop_wrap').hide();
+                    $('.com_pop').hide();
+
+                })
+
+                $('.pop_product_cgv').click(function (e) {
+                    e.stopPropagation();
+
+                })
+
+                $('.com_pop_btn_close').click(function () {
+                    $('.com_pop_wrap').hide();
+                    $('.com_pop').hide();
+                });
+
+            });
+
+            // 사용가능한 CGV 노출 끝끝
+
+            function fnCategoryData(cno) {
+                location.href = "/culture-event/popcorn-store/store-category?cno=" + cno;
+            }
+
+            //극장 데이터 가져오기
+            function fnTheaterData(_gCdoe) {
+
+                $("#theaterRegion").children("li").each(function () {
+                    if ($(this).hasClass("active")) {
+                        $(this).removeClass("active");
+                    }
+                    if ($(this)[0].id == "liTheater" + _gCdoe) {
+                        $(this).addClass("active");
+                    }
+                });
+
+                $(".pop_product_cgv_content").each(function () {
+                    if ($(this)[0].id == "divLocation" + _gCdoe) {
+                        $(this).show();
+                    } else {
+                        $(this).hide();
+                    }
+                });
+            }
+        </script>
+
+
+        <!-- 카테고리 메뉴 -->
+        <div th:replace="user/culture-event/fragment/category_store_wrap :: category_wrap"></div>
+        <!-- 카테고리 메뉴 끝 -->
+
+
+        <!-- E 카테고리 메뉴 & 받은선물/장바구니 -->
+
+        <!-- 상품정보 -->
+        <input type="hidden" th:value="${giftDTO.title}" id="DTOTitle">
+        <input type="hidden" th:value="${giftDTO.category}" id="DTOCategory">
+        <div class='category_product_detail_wrap'>
+            <strong class='category_product_detail_title' th:utext='${giftDTO.title+"<span>기프트콘</span>"}'></strong>
+            <div class='category_product_detail_contents'>
+                <div class='category_product_detail_contents_img_wrap'>
+                    <ul class='bxslider'>
+                        <li>
+                            <img th:src='${giftDTO.gfile}' th:alt='${giftDTO.title}'>
+                        </li>
+                    </ul>
+                </div>
+                <div class='category_product_detail_contents_wrap'><p class='category_product_detail_sale_price_wrap'>
+                    <span class="store_deatail_sale_price" id="spnSalePrice" th:text="${giftDTO.price}"></span></p>
+                    <dl class='category_product_detail_add_info'>
+                        <dt>상품구성</dt>
+                        <dd th:text="${giftDTO.gname}"></dd>
+                        <dt>유효기간</dt>
+                        <dd th:if='${giftDTO.endMonth == "6"}'>구매일로부터 6개월 이내</dd>
+                        <dd th:if='${giftDTO.endMonth == "24"}'>구매일로부터 24개월 이내</dd>
+                        <dt>상품교환</dt>
+                        <dd><a href='#none' class='btn_available_viewcgv'>사용가능 CGV 보기</a>
+                        </dd>
+                    </dl>
+                    <div class='category_product_detail_price_wrap'>
+                        <div class='com_form_number'>
+                            <a href="#none" onclick="$.fn.comFormNumberCnt('com_form_count0', 'com_total_price' ,'com_total_price0', -1, 1, 10);" class="com_btn_minus">-</a>
+                            <span class='com_form_count com_form_count0 totalCount'>1</span>
+                            <a href="#none" onclick="$.fn.comFormNumberCnt('com_form_count0','com_total_price', 'com_total_price0', 1, 1, 10);" class="com_btn_plus">+</a>
+                            <span class='com_total_price' th:id='spantotalprice' th:text="${giftDTO.price}"></span>
+                        </div>
+                        <div class='category_product_detail_total_price'>
+                            <p class='com_form_total_price'>총 구매금액<span class='com_total_price0 com_product_total_price' th:text="${giftDTO.price}"></span></p>
+                        </div>
+                    </div>
+                    <div class='category_product_detail_btn_wrap'>
+                        <a href='#' onclick='nogift()'>선물하기</a>
+<!--                        <a href='/culture-event/popcorn-store/user-cart' onclick='app.goLogin(); return false;'>선물하기</a>-->
+<!--                        <a th:href='@{/culture-event/popcorn-store/purchase-confirm?gcode=} + ${giftDTO.gcode}'>구매하기</a>-->
+<!--                        http://localhost:8080/culture-event/popcorn-store/purchase-confirm?gcode=1-->
+
+                        <a th:href='@{/culture-event/popcorn-store/purchase-confirm(gcode=${giftDTO.gcode}, totalCount=${giftDTO.price})}'>구매하기</a>
+<!--                        http://localhost:8080/culture-event/popcorn-store/purchase-confirm?id=1&id=totalCount-->
+
+<!--                        <a href='/culture-event/popcorn-store/purchase-confirm'>구매하기</a>-->
+                    </div>
+                </div>
+            </div>
+            <p class='category_product_detail_txtbox' th:text="${giftDTO.content}"></p>
+        </div>
+        <!-- 추가상품 -->
+
+        <!-- 같이본상품 -->
+
+
+        <!--/ Contents End -->
+    </div>
+    <!-- /Contents Area -->
+</div>
+<!-- E Contaniner -->
+
+<script th:inline="javascript">
+    function nogift() {
+        alert("현재 선물하기를 이용할 수 없습니다.");
+        return false;
+    }
+
+    // let totalcount = [[${totalCount}]]
+    // let total = document.getElementsByClassName('totalCount')
+    // console.log(total)
+</script>
+
+<!-- S Popup -->
+<div class="com_pop_wrap">
+    <div class="com_pop_fog"></div>
+    <div class="com_pop pop_product_cgv" style="display: block; margin-left: -275px; margin-top: -310px;">
+        <div class="com_pop_header"><span>사용가능한 CGV</span><a href="#none" class="sprite com_pop_btn_close">닫기</a></div>
+        <div class="com_pop_container" id="divAvailableCgv"><p>해당 기프트콘을 사용할 수 있는 CGV 입니다</p>
+            <ul class="pop_product_cgv_title" id="theaterRegion">
+                <li class="active" id="liTheater01"><a href="javascript:void(0);"
+                                                       onclick="fnTheaterData('01');">서울</a><span>28</span>
+                </li>
+                <li class="" id="liTheater02"><a href="javascript:void(0);"
+                                                 onclick="fnTheaterData('02');">경기</a><span>54</span></li>
+            </ul>
+            <ul class="pop_product_cgv_content" id="divLocation01">
+                <li><a href="javascript:void(0);">CGV강남</a></li>
+                <li><a href="javascript:void(0);">CGV강변</a></li>
+                <li><a href="javascript:void(0);">CGV건대입구</a></li>
+            </ul>
+            <ul class="pop_product_cgv_content" id="divLocation02" style="display:none;">
+                <li><a href="javascript:void(0);">CGV경기광주</a></li>
+                <li><a href="javascript:void(0);">CGV고양행신</a></li>
+                <li><a href="javascript:void(0);">CGV광교</a></li>
+
+            </ul>
+
+        </div>
+    </div>
+</div>
+<div class="pop_wrap"></div>
+
+<!-- E Popup -->
+
+<!-- S 예매하기 및 TOP Fixed 버튼 -->
+<div class="fixedBtn_wrap">
+    <a href="#none" class="btn_gotoTop"><img src="https://img.cgv.co.kr/R2014/images/common/btn/gotoTop.png"
+                                             alt="최상단으로 이동"/></a>
+</div>
+
+<!-- E 예매하기 및 TOP Fixed 버튼 -->
+
+<div th:replace="user/fragment/footer :: footer-user"></div>
+</body>
+</html>

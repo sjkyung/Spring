@@ -20,7 +20,7 @@ public class Bike {
     @Id
     private Long id;
 
-    private String key;
+    private String apiKey;
 
 
 }

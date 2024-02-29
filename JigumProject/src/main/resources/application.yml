@@ -4,15 +4,19 @@ server:
 # 데이터 베이스 세팅
 spring:
   datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://3.39.9.175:3306/test
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://3.39.9.175:3306/test
 #    driver-class-name: com.mysql.cj.jdbc.Driver
 #    url: jdbc:mysql://localhost:3306/test
-    username: root
-    password: root1234
+#    username: root
+#    password: root1234
 #    password: 1234
     hikari:
       maximum-pool-size: 20
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    password:
 
 
   # jpa table 네이밍 대소문자 구분 여부
@@ -21,10 +25,15 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+#        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
         query:
           interceptor: com.querydsl.jpa.impl.JPAQueryFactory
-        ddl-auto: none
+#        ddl-auto: none
+        ddl-auto: update
+        dialect: org.hibernate.dialect.H2Dialect
+  H2:
+    console:
+      enabled: true
 
 
 

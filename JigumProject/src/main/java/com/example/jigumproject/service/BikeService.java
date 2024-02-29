@@ -35,7 +35,7 @@ public class BikeService {
         public List<row> bikeList(String startLatitude, String endLatitude){
 
         Optional<Bike> bikeKey = bikeRepository.findById(1L);
-        String  apiBikeKey = bikeKey.get().getKey();
+        String  apiBikeKey = bikeKey.get().getApiKey();
         List<row> bikeDtoList = new ArrayList();
 
         String start = startLatitude.substring(0,5);
